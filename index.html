@@ -1,73 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FatCat Asset Management — parent company. Chicago negotiation coaching, minimalist homes, gadget design, and content creation.">
-  <meta property="og:image" content="https://fatcatam.com/logo.png">
-  <title>FatCat Asset Management</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
-    h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 300; letter-spacing: -0.02em; }
-    .subtitle { color: #888; margin-bottom: 4rem; font-size: 1.1rem; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 800px; width: 100%; }
-    .card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 2rem; text-decoration: none; color: inherit; transition: all 0.2s; }
-    .card:hover { border-color: #666; transform: translateY(-4px); }
-    .card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 500; }
-    .card p { color: #aaa; line-height: 1.6; }
-    .card { cursor: pointer; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FatCat Asset Management</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: #0a0a0a;
+color: #fff;
+font-family: system-ui, -apple-system, sans-serif;
+line-height: 1.6;
+padding: 2rem 1rem;
+}
+
+.container {
+max-width: 900px;
+margin: 0 auto;
+}
+
+.logo {
+display: block;
+width: 120px;
+height: 120px;
+margin: 0 auto 2rem;
+border-radius: 12px;
+}
+
+h1 {
+font-size: 3rem;
+font-weight: 300;
+text-align: center;
+margin-bottom: 0.5rem;
+}
+
+.subtitle {
+color: #888;
+text-align: center;
+font-size: 1.1rem;
+margin-bottom: 3rem;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin-bottom: 3rem;
+}
+
+.card {
+background: #1a1a1a;
+border: 1px solid #333;
+border-radius: 8px;
+padding: 1.5rem;
+text-decoration: none;
+color: inherit;
+display: block;
+transition: border-color 0.2s;
+}
+
+.card:hover {
+border-color: #666;
+}
+
+.card h2 {
+font-size: 1.3rem;
+margin-bottom: 0.5rem;
+font-weight: 500;
+}
+
+.card p {
+color: #888;
+font-size: 0.95rem;
+}
+
+.contact {
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.contact a {
+display: inline-block;
+background: #1a1a1a;
+border: 1px solid #333;
+color: #fff;
+padding: 0.75rem 2rem;
+text-decoration: none;
+border-radius: 6px;
+transition: border-color 0.2s;
+}
+
+.contact a:hover {
+border-color: #666;
+}
+
+footer {
+text-align: center;
+color: #888;
+font-size: 0.9rem;
+padding-top: 2rem;
+border-top: 1px solid #333;
+}
+
+@media (max-width: 640px) {
+h1 {
+font-size: 2rem;
+}
+}
+</style>
 </head>
 <body>
-  <img src="logo.png" alt="FatCat" style="width:120px;height:120px;margin-bottom:2rem;border-radius:12px;">
-  <h1>FatCat Asset Management</h1>
-  <p class="subtitle">Parent company</p>
-  <div class="cards">
-    <a href="https://fatcatpm.com" class="card">
-      <h2>Minimalist Built Homes</h2>
-      <p>Large minimalist residential design and construction in Chicago.</p>
-    </a>
-    <a href="https://negotiatorsondemand.com" class="card">
-      <h2>NOD Academy</h2>
-      <p>Meditation camp, deep work training, and negotiation mastery.</p>
-    </a>
-    <a href="https://negotiatorcruz.com" class="card">
-      <h2>A Global Negotiations Sensation</h2>
-      <p>Character-driven negotiation content.</p>
-    </a>
-    <a href="https://dancruzhomes.com" class="card">
-      <h2>Dan Cruz Homes</h2>
-      <p>Custom home builder specializing in large minimalist builds and adaptive reuse in Chicago.</p>
-    </a>
-    <a href="https://fatcatcruz.com" class="card">
-      <h2>FatCat Cruz</h2>
-      <p>AI-designed physical products and gadgets. Tools for a better life.</p>
-    </a>
-    <a href="https://nodnew.com" class="card">
-      <h2>NOD News</h2>
-      <p>Updates and content from the NOD Academy and Negotiators on Demand ecosystem.</p>
-    </a>
-    <a href="https://nodnews.com" class="card">
-      <h2>NOD Academy</h2>
-      <p>Meditation camp, deep work training, and negotiation mastery programs.</p>
-    </a>
-    <a href="https://pilsenphoto.com" class="card">
-      <h2>Pilsen Photo</h2>
-      <p>Photography from Chicago's Pilsen neighborhood. Street, portrait, and documentary.</p>
-    </a>
-    <a href="https://pretending2care.com" class="card">
-      <h2>Pretending 2 Care</h2>
-      <p>A quiet corner of the internet. Parked, watching, waiting.</p>
-    </a>
-    <a href="https://pretendingtocare.com" class="card">
-      <h2>Pretending To Care</h2>
-      <p>A quiet corner of the internet. Parked, watching, waiting.</p>
-    </a>
-  </div>
-  <p style="margin-top:3rem;color:#666;font-size:0.9rem">
-    <a href="mailto:hello@negotiatorsondemand.com" style="color:#888;text-decoration:none;border:1px solid #444;padding:0.6rem 1.5rem;border-radius:6px;">Contact</a>
-  </p>
-  <footer style="text-align:center;color:#555;padding:2rem 1rem 3rem;font-size:0.85rem">&copy; 2026 FatCat Asset Management</footer>
+<div class="container">
+<img src="logo.png" alt="FatCat" class="logo">
+<h1>FatCat Asset Management</h1>
+<p class="subtitle">Parent company</p>
+
+<div class="grid">
+<a href="https://fatcatpm.com" class="card">
+<h2>fatcatpm.com</h2>
+<p>Minimalist Built Homes, large minimalist residential design and construction in Chicago</p>
+</a>
+
+<a href="https://negotiatorsondemand.com" class="card">
+<h2>negotiatorsondemand.com</h2>
+<p>NOD Academy, meditation camp + deep work training + negotiation mastery</p>
+</a>
+
+<a href="https://negotiatorcruz.com" class="card">
+<h2>negotiatorcruz.com</h2>
+<p>A Global Negotiations Sensation, character-driven negotiation content</p>
+</a>
+
+<a href="https://dancruzhomes.com" class="card">
+<h2>dancruzhomes.com</h2>
+<p>Dan Cruz Homes, custom home builder specializing in large minimalist builds and adaptive reuse in Chicago</p>
+</a>
+
+<a href="https://fatcatcruz.com" class="card">
+<h2>fatcatcruz.com</h2>
+<p>FatCat Cruz, AI-designed physical products and gadgets</p>
+</a>
+
+<a href="https://nodnew.com" class="card">
+<h2>nodnew.com</h2>
+<p>NOD News, updates and content from the NOD ecosystem</p>
+</a>
+
+<a href="https://nodnews.com" class="card">
+<h2>nodnews.com</h2>
+<p>NOD Academy, meditation camp + deep work + negotiation programs</p>
+</a>
+
+<a href="https://pilsenphoto.com" class="card">
+<h2>pilsenphoto.com</h2>
+<p>Pilsen Photo, street/portrait/documentary from Chicago's Pilsen neighborhood</p>
+</a>
+
+<a href="https://pretending2care.com" class="card">
+<h2>pretending2care.com</h2>
+<p>Pretending 2 Care, a quiet corner of the internet, parked</p>
+</a>
+
+<a href="https://pretendingtocare.com" class="card">
+<h2>pretendingtocare.com</h2>
+<p>Pretending To Care, a quiet corner of the internet, parked</p>
+</a>
+</div>
+
+<div class="contact">
+<a href="mailto:hello@negotiatorsondemand.com">Contact</a>
+</div>
+
+<footer>
+© 2026 FatCat Asset Management
+</footer>
+</div>
 </body>
 </html>
