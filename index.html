@@ -4,181 +4,258 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FatCat Asset Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+:root {
+  --gold: #d4a853;
+  --gold-dim: #a98742;
+  --ink: #0a0a0c;
+  --panel: #14141a;
+  --panel-hover: #1b1b23;
+  --line: #26262e;
+  --text: #f4f1ea;
+  --muted: #8e8a7d;
 }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-background: #0a0a0a;
-color: #fff;
-font-family: system-ui, -apple-system, sans-serif;
-line-height: 1.6;
-padding: 2rem 1rem;
+  background: var(--ink);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.55;
+  padding: 3rem 1.25rem 4rem;
+  -webkit-font-smoothing: antialiased;
 }
 
-.container {
-max-width: 900px;
-margin: 0 auto;
-}
+.container { max-width: 1080px; margin: 0 auto; }
 
+header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
 .logo {
-display: block;
-width: 120px;
-height: 120px;
-margin: 0 auto 2rem;
-border-radius: 12px;
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1.75rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
 }
-
 h1 {
-font-size: 3rem;
-font-weight: 300;
-text-align: center;
-margin-bottom: 0.5rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.01em;
+}
+h1 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
 }
 
-.subtitle {
-color: #888;
-text-align: center;
-font-size: 1.1rem;
-margin-bottom: 3rem;
+.section-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 3rem 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.section-label strong { color: var(--gold); font-weight: 600; }
 
 .grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 1.5rem;
-margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
 }
 
 .card {
-background: #1a1a1a;
-border: 1px solid #333;
-border-radius: 8px;
-padding: 1.5rem;
-text-decoration: none;
-color: inherit;
-display: block;
-transition: border-color 0.2s;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
-
 .card:hover {
-border-color: #666;
+  background: var(--panel-hover);
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
 }
-
-.card h2 {
-font-size: 1.3rem;
-margin-bottom: 0.5rem;
-font-weight: 500;
+.card .domain {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
 }
-
+.card .arrow {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+.card:hover .arrow { color: var(--gold); transform: translate(2px, -2px); }
+.card .role {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
 .card p {
-color: #888;
-font-size: 0.95rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
+
+.card.parked {
+  opacity: 0.55;
+  background: transparent;
+  border-style: dashed;
+}
+.card.parked:hover { opacity: 0.85; border-color: var(--line); transform: none; }
+.card.parked .role { color: var(--muted); }
 
 .contact {
-text-align: center;
-margin-bottom: 3rem;
+  text-align: center;
+  margin: 4rem 0 3rem;
 }
-
 .contact a {
-display: inline-block;
-background: #1a1a1a;
-border: 1px solid #333;
-color: #fff;
-padding: 0.75rem 2rem;
-text-decoration: none;
-border-radius: 6px;
-transition: border-color 0.2s;
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  padding: 0.85rem 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.18s ease;
 }
-
-.contact a:hover {
-border-color: #666;
-}
+.contact a:hover { background: var(--gold-dim); }
 
 footer {
-text-align: center;
-color: #888;
-font-size: 0.9rem;
-padding-top: 2rem;
-border-top: 1px solid #333;
-}
-
-@media (max-width: 640px) {
-h1 {
-font-size: 2rem;
-}
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
 }
 </style>
 </head>
 <body>
 <div class="container">
-<img src="logo.png" alt="FatCat" class="logo">
-<h1>FatCat Asset Management</h1>
-<p class="subtitle">Parent company</p>
 
+<header>
+  <img src="logo.png" alt="FatCat" class="logo">
+  <h1>FatCat <em>Asset Management</em></h1>
+  <p class="subtitle">Parent company · Chicago</p>
+</header>
+
+<div class="section-label"><strong>Operating businesses</strong></div>
 <div class="grid">
-<a href="https://fatcatpm.com" class="card">
-<h2>fatcatpm.com</h2>
-<p>Minimalist Built Homes, large minimalist residential design and construction in Chicago</p>
-</a>
+  <a href="https://negotiatorsondemand.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Negotiation training</span>
+    <span class="domain">negotiatorsondemand.com</span>
+    <p>NOD Academy — meditation camp, deep work training, negotiation mastery. Home of the MixMatch app.</p>
+  </a>
 
-<a href="https://negotiatorsondemand.com" class="card">
-<h2>negotiatorsondemand.com</h2>
-<p>NOD Academy, meditation camp + deep work training + negotiation mastery</p>
-</a>
+  <a href="https://negotiatorcruz.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Corporate training</span>
+    <span class="domain">negotiatorcruz.com</span>
+    <p>Corporate negotiation intensives for teams that persuade for a living. $500/hr to $20K engagements.</p>
+  </a>
 
-<a href="https://negotiatorcruz.com" class="card">
-<h2>negotiatorcruz.com</h2>
-<p>A Global Negotiations Sensation, character-driven negotiation content</p>
-</a>
+  <a href="https://fatcatpm.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Residential construction</span>
+    <span class="domain">fatcatpm.com</span>
+    <p>Minimalist Built Homes — large minimalist residential design and construction in Chicago.</p>
+  </a>
 
-<a href="https://dancruzhomes.com" class="card">
-<h2>dancruzhomes.com</h2>
-<p>Dan Cruz Homes, custom home builder specializing in large minimalist builds and adaptive reuse in Chicago</p>
-</a>
+  <a href="https://dancruzhomes.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Custom builder</span>
+    <span class="domain">dancruzhomes.com</span>
+    <p>Dan Cruz Homes — large minimalist builds and adaptive reuse. Bring the lot, we handle the rest.</p>
+  </a>
 
-<a href="https://fatcatcruz.com" class="card">
-<h2>fatcatcruz.com</h2>
-<p>FatCat Cruz, AI-designed physical products and gadgets</p>
-</a>
+  <a href="https://fatcatcruz.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Consumer products</span>
+    <span class="domain">fatcatcruz.com</span>
+    <p>FatCat Cruz — AI-designed physical products and gadgets.</p>
+  </a>
 
-<a href="https://nodnew.com" class="card">
-<h2>nodnew.com</h2>
-<p>NOD News, updates and content from the NOD ecosystem</p>
-</a>
+  <a href="https://nodnew.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Gadgets + books</span>
+    <span class="domain">nodnew.com</span>
+    <p>Pocket NOD and the NOD book line — Field Guide, Field Manual, Kindle editions.</p>
+  </a>
 
-<a href="https://nodnews.com" class="card">
-<h2>nodnews.com</h2>
-<p>NOD Academy, meditation camp + deep work + negotiation programs</p>
-</a>
+  <a href="https://nodnews.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Daily content</span>
+    <span class="domain">nodnews.com</span>
+    <p>NOD News — twelve stories, four modes, one dashboard. The negotiation-relevant news signal room.</p>
+  </a>
 
-<a href="https://pilsenphoto.com" class="card">
-<h2>pilsenphoto.com</h2>
-<p>Pilsen Photo, street/portrait/documentary from Chicago's Pilsen neighborhood</p>
-</a>
+  <a href="https://pilsenphoto.com" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Photography</span>
+    <span class="domain">pilsenphoto.com</span>
+    <p>Pilsen Photo — street, portrait, and documentary work from Chicago's Pilsen neighborhood.</p>
+  </a>
+</div>
 
-<a href="https://pretending2care.com" class="card">
-<h2>pretending2care.com</h2>
-<p>Pretending 2 Care, a quiet corner of the internet, parked</p>
-</a>
-
-<a href="https://pretendingtocare.com" class="card">
-<h2>pretendingtocare.com</h2>
-<p>Pretending To Care, a quiet corner of the internet, parked</p>
-</a>
+<div class="section-label"><strong>Parked</strong></div>
+<div class="grid">
+  <a href="https://pretending2care.com" class="card parked">
+    <span class="arrow">↗</span>
+    <span class="role">Parked</span>
+    <span class="domain">pretending2care.com</span>
+    <p>A quiet corner of the internet.</p>
+  </a>
+  <a href="https://pretendingtocare.com" class="card parked">
+    <span class="arrow">↗</span>
+    <span class="role">Parked</span>
+    <span class="domain">pretendingtocare.com</span>
+    <p>A quiet corner of the internet.</p>
+  </a>
 </div>
 
 <div class="contact">
-<a href="mailto:hello@negotiatorsondemand.com">Contact</a>
+  <a href="mailto:hello@negotiatorsondemand.com">Contact</a>
 </div>
 
-<footer>
-© 2026 FatCat Asset Management
-</footer>
+<footer>© 2026 FatCat Asset Management</footer>
 </div>
 </body>
 </html>
