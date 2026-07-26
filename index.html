@@ -28,6 +28,13 @@ body {
   padding: 3rem 1.25rem 4rem;
   -webkit-font-smoothing: antialiased;
 }
+/* ponytail: animated gold drift bg + scroll reveal, no libs */
+body::before{content:"";position:fixed;inset:-50%;background:radial-gradient(circle at 30% 30%,rgba(212,168,83,.12),transparent 50%),radial-gradient(circle at 70% 70%,rgba(212,168,83,.07),transparent 50%);animation:heroDrift 20s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+.container{position:relative;z-index:1}
+@keyframes heroDrift{from{transform:translate(-4%,-2%) scale(1)}to{transform:translate(4%,2%) scale(1.08)}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){body::before{animation:none}.rv{opacity:1;transform:none;transition:none}}
 
 .container { max-width: 1080px; margin: 0 auto; }
 
@@ -257,5 +264,11 @@ footer {
 
 <footer>© 2026 FatCat Asset Management</footer>
 </div>
+<script>
+// ponytail: auto-tag cards + reveal, no markup churn
+document.querySelectorAll('.card,.section-label,.contact').forEach(el=>el.classList.add('rv'));
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
