@@ -42,7 +42,19 @@ body::before{content:"";position:fixed;inset:-50%;background:radial-gradient(cir
 header {
   text-align: center;
   margin-bottom: 4rem;
+  position:relative;
+  overflow:hidden;
+  padding-bottom:140px;
 }
+/* ponytail: skyline parallax — see skill skyline-parallax */
+.skyline{position:absolute;left:0;right:0;bottom:0;pointer-events:none;z-index:0;will-change:transform}
+.skyline.back{height:180px;opacity:.35;background:rgba(212,168,83,.12);
+ clip-path:polygon(0 100%,0 70%,5% 70%,5% 45%,10% 45%,10% 75%,15% 75%,15% 30%,20% 30%,20% 65%,26% 65%,26% 50%,32% 50%,32% 80%,38% 80%,38% 35%,44% 35%,44% 60%,50% 60%,50% 25%,56% 25%,56% 70%,62% 70%,62% 45%,68% 45%,68% 75%,74% 75%,74% 32%,80% 32%,80% 65%,86% 65%,86% 50%,92% 50%,92% 78%,96% 78%,96% 40%,100% 40%,100% 100%)}
+.skyline.front{height:120px;background:linear-gradient(to top,var(--ink) 15%,rgba(212,168,83,.18));
+ clip-path:polygon(0 100%,0 60%,4% 60%,4% 35%,8% 35%,8% 65%,12% 65%,12% 20%,17% 20%,17% 55%,22% 55%,22% 40%,27% 40%,27% 70%,33% 70%,33% 25%,38% 25%,38% 50%,44% 50%,44% 15%,50% 15%,50% 60%,56% 60%,56% 35%,62% 35%,62% 65%,68% 65%,68% 22%,74% 22%,74% 55%,80% 55%,80% 40%,86% 40%,86% 68%,92% 68%,92% 30%,96% 30%,96% 55%,100% 55%,100% 100%)}
+@media(prefers-reduced-motion:reduce){.skyline{transform:none!important}}
+header>*{position:relative;z-index:1}
+header>.skyline{position:absolute;z-index:0}
 .logo {
   display: block;
   width: 96px;
@@ -179,6 +191,8 @@ footer {
 <div class="container">
 
 <header>
+  <div class="skyline back"></div>
+  <div class="skyline front"></div>
   <img src="logo.png" alt="FatCat" class="logo">
   <h1>FatCat <em>Asset Management</em></h1>
   <p class="subtitle">Parent company · Chicago</p>
@@ -296,6 +310,23 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
       if(y<600) hero.style.transform = 'translateY('+y*.18+'px)';
     },{passive:true});
   }
+})();
+</script>
+<script>
+// ponytail: skyline parallax — back 0.10x, front 0.25x, rAF-throttled
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const back=document.querySelector('.skyline.back'), front=document.querySelector('.skyline.front');
+  if(!back) return;
+  let tick=false;
+  addEventListener('scroll',()=>{
+    if(tick) return; tick=true;
+    requestAnimationFrame(()=>{
+      const y=scrollY;
+      if(y<900){ back.style.transform='translateY('+y*.10+'px)'; front.style.transform='translateY('+y*.25+'px)'; }
+      tick=false;
+    });
+  },{passive:true});
 })();
 </script>
 </body>
