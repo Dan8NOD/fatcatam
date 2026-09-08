@@ -8,18 +8,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "FatCat Asset Management",
-  "url": "https://fatcatam.com",
-  "areaServed": "Chicago",
-  "parentOrganization": {"@type": "Organization", "name": "FatCat Property Management", "url": "https://fatcatpm.com"},
-  "subOrganization": [
-    {"@type": "Organization", "name": "NOD Academy / Negotiators on Demand", "url": "https://negotiatorsondemand.com"},
-    {"@type": "Organization", "name": "Negotiator Cruz", "url": "https://negotiatorcruz.com"},
-    {"@type": "Person", "name": "Dan Cruz", "url": "https://fatcatcruz.com"},
-    {"@type": "Organization", "name": "NOD New", "url": "https://nodnew.com"},
-    {"@type": "Organization", "name": "NOD News", "url": "https://nodnews.com"},
-    {"@type": "Organization", "name": "Pilsen Photo", "url": "https://pilsenphoto.com"}
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fatcatam.com/#organization",
+      "name": "FatCat Asset Management",
+      "url": "https://fatcatam.com",
+      "areaServed": "Chicago",
+      "parentOrganization": {"@type": "Organization", "name": "FatCat Property Management", "url": "https://fatcatpm.com"},
+      "subOrganization": [
+        {"@type": "Organization", "name": "NOD Academy / Negotiators on Demand", "url": "https://negotiatorsondemand.com"},
+        {"@type": "Organization", "name": "Negotiator Cruz", "url": "https://negotiatorcruz.com"},
+        {"@type": "Person", "name": "Dan Cruz", "url": "https://fatcatcruz.com"},
+        {"@type": "Organization", "name": "NOD New", "url": "https://nodnew.com"},
+        {"@type": "Organization", "name": "NOD News", "url": "https://nodnews.com"},
+        {"@type": "Organization", "name": "Pilsen Photo", "url": "https://pilsenphoto.com"}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Room 111 Dream Codex",
+      "url": "https://room-111-dream-codex.vercel.app",
+      "description": "A searchable dream archive of symbols, recurring motifs, and the nightly map.",
+      "publisher": {"@id": "https://fatcatam.com/#organization"}
+    }
   ]
 }
 </script>
@@ -372,6 +384,16 @@ footer {
     <span class="role">Content studio</span>
     <span class="domain">pilsenphoto.com</span>
     <p>Pilsen Photo — drone photography, vlog production, and brand content from Chicago's Pilsen neighborhood.</p>
+  </a>
+</div>
+
+<div class="section-label"><strong>Dream assets · Nagual assets</strong></div>
+<div class="grid">
+  <a href="https://room-111-dream-codex.vercel.app" class="card">
+    <span class="arrow">↗</span>
+    <span class="role">Searchable dream archive</span>
+    <span class="domain">Room 111 Dream Codex</span>
+    <p>Dream records, recurring symbols, and a walkable map of the nightly world.</p>
   </a>
 </div>
 
